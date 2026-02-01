@@ -165,20 +165,20 @@ function App() {
             Curated Vintage Clothing in Louisville
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-xl mx-auto">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={GOOGLE_MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-red-600 text-white font-semibold rounded hover:bg-red-700 transition-colors shadow-lg"
+              className="inline-flex items-center justify-center px-8 py-4 bg-red-600 text-white font-semibold rounded hover:bg-red-700 transition-colors shadow-lg"
               data-testid="hero-directions-btn"
             >
               <MapPin className="w-5 h-5 mr-2" />
-              Get Directions
+              Directions
             </a>
             <a
               href="tel:+15023840095"
-              className="flex-1 w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-white text-stone-900 font-semibold rounded hover:bg-stone-100 transition-colors shadow-lg"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-stone-900 font-semibold rounded hover:bg-stone-100 transition-colors shadow-lg"
               data-testid="hero-call-btn"
             >
               <Phone className="w-5 h-5 mr-2" />
@@ -188,10 +188,11 @@ function App() {
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-14 h-14 sm:w-auto sm:h-auto sm:px-4 sm:py-4 bg-white text-stone-900 font-semibold rounded hover:bg-stone-100 transition-colors shadow-lg inline-flex items-center justify-center"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-stone-900 font-semibold rounded hover:bg-stone-100 transition-colors shadow-lg border-2 border-red-600"
               data-testid="hero-instagram-btn"
             >
-              <Instagram className="w-6 h-6" />
+              <Instagram className="w-5 h-5 mr-2" />
+              Instagram
             </a>
           </div>
         </div>
