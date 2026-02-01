@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "@/App.css";
-import { MapPin, Phone, Star, Clock } from "lucide-react";
+import { MapPin, Phone, Star, Clock, ChevronDown, Instagram } from "lucide-react";
 
 const STORE_IMAGES = {
-  storefront1: "https://customer-assets.emergentagent.com/job_678a73c4-b73b-4fe2-856f-9d4b969d0787/artifacts/nsd264y2_%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202026-02-01%20184928.png",
+  storefront1: "https://customer-assets.emergentagent.com/job_678a73c4-b73b-4fe2-856f-9d4b969d0787/artifacts/6ix2rtcx_Gemini_Generated_Image_wyui5nwyui5nwyui.png",
   storefront2: "https://customer-assets.emergentagent.com/job_678a73c4-b73b-4fe2-856f-9d4b969d0787/artifacts/nm71ley8_%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202026-02-01%20185012.png",
   interior: "https://customer-assets.emergentagent.com/job_678a73c4-b73b-4fe2-856f-9d4b969d0787/artifacts/w97qks2p_%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202026-02-01%20185023.png",
   signage: "https://customer-assets.emergentagent.com/job_678a73c4-b73b-4fe2-856f-9d4b969d0787/artifacts/2gx14n95_%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202026-02-01%20185033.png",
@@ -12,18 +12,55 @@ const STORE_IMAGES = {
 
 const REVIEWS = [
   {
-    text: "Best vintage spot in Louisville! Found an incredible 90s NASCAR jacket that's one of a kind.",
-    author: "Jamie R."
+    text: "I really liked the vibes of this thrift store! They had a cozy window, old tvs, and a nice dressing room. Personally most things in this store weren't my style, but it was well organized, and had a lot of good professional & college sports items. Staff was kind and helpful with my questions.",
+    author: "Natalia Cruz",
+    rating: 5,
+    url: "https://maps.app.goo.gl/b6eJ1ehf5wYUkQXM9"
   },
   {
-    text: "The curation here is unmatched. Every visit I find something unique. Staff is super knowledgeable.",
-    author: "Marcus T."
+    text: "I literally lost my Ray bans in there and they were so sweet and like posted whose Ray-Ban's and I was like oh my gosh, like those are mine like thank you so much they were teaaaaaaaa and honest 🤏🤏🤏🤏🤏 and lowkey not bad pricing",
+    author: "Sophia Mcgill",
+    rating: 5,
+    url: "https://maps.app.goo.gl/63LPY6Q7CRgsAkue6"
   },
   {
-    text: "Obsessed with this place. The selection changes weekly and prices are fair. Hidden gem!",
-    author: "Riley K."
+    text: "Best vintage clothing store in Louisville, really nice and helpful employees, and a really sick layout. Run a lot of promotions for even better deals as well, great business.",
+    author: "Dalen Lesshafft",
+    rating: 5,
+    url: "https://maps.app.goo.gl/WSXuQoSQSWoQSLoM8"
+  },
+  {
+    text: "wonderful owners. friendly staff. excellent prices. would recomend. love this place. i feel right at home ❤️",
+    author: "Angela Helm",
+    rating: 5,
+    url: "https://maps.app.goo.gl/TNKyzkV9dkcasyuz6"
+  },
+  {
+    text: "Such a vibe in the place owners are great people who will help and take u seriously. Great place to get some good vintage.",
+    author: "Austin Matracia",
+    rating: 5,
+    url: "https://maps.app.goo.gl/bMxkYEogmWQscTSV7"
+  },
+  {
+    text: "I had the chance to stop by and look around. I bought a couple shirts but ended up leaving my wallet in the store and left the city. James was very helpful in getting my wallet back to me and handled the situation perfectly, which he didn't have any obligation to do. I would give 6 starts if possible! Also, great prices and awesome selection.",
+    author: "Gunner Hogston",
+    rating: 5,
+    url: "https://maps.app.goo.gl/N6skeva7EQhtipM18"
   }
 ];
+
+const HOURS = [
+  { day: "Monday", hours: "12–8 PM" },
+  { day: "Tuesday", hours: "12–8 PM" },
+  { day: "Wednesday", hours: "12–8 PM" },
+  { day: "Thursday", hours: "12–8 PM" },
+  { day: "Friday", hours: "12–8 PM" },
+  { day: "Saturday", hours: "11 AM–8 PM" },
+  { day: "Sunday", hours: "11 AM–7 PM" }
+];
+
+const GOOGLE_MAPS_URL = "https://www.google.com/maps/place/502+Thrifts/@38.2316284,-85.7095982,20.5z/data=!4m15!1m8!3m7!1s0x88690cc9390826d7:0x9e951e81abbf4e0b!2s1900+Eastern+Pkwy,+Louisville,+KY+40204!3b1!8m2!3d38.2315813!4d-85.7094412!16s%2Fg%2F11rg5_0gkc!3m5!1s0x88690d00536b0225:0xec768e31c9b33e51!8m2!3d38.2315813!4d-85.7094412!16s%2Fg%2F11y3n1hm09?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D";
+const INSTAGRAM_URL = "https://www.instagram.com/502_thrifts/";
 
 function App() {
   const [activeSection, setActiveSection] = useState("home");
