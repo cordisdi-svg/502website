@@ -293,7 +293,7 @@ function App() {
       </section>
 
       {/* Reviews Section */}
-      <section id="reviews" className="py-24 bg-stone-900 text-white">
+      <section id="reviews" className="py-24 bg-stone-900 text-white overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center mb-4" data-testid="reviews-rating">
@@ -304,21 +304,28 @@ function App() {
             <p className="text-2xl text-stone-200 mt-4">Loved by the local vintage community</p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div 
+            ref={reviewsRef}
+            className="flex gap-8 overflow-x-auto scroll-smooth pb-4 px-4 -mx-4 scrollbar-hide"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
             {REVIEWS.map((review, index) => (
-              <div
+              <a
                 key={index}
-                className="bg-stone-800 p-6 rounded-lg"
+                href={review.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-stone-800 p-6 rounded-lg min-w-[320px] md:min-w-[400px] flex-shrink-0 hover:bg-stone-750 transition-colors cursor-pointer"
                 data-testid={`review-${index}`}
               >
                 <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
+                  {[...Array(review.rating)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
-                <p className="text-stone-200 mb-4 leading-relaxed">{review.text}</p>
+                <p className="text-stone-200 mb-4 leading-relaxed line-clamp-4">{review.text}</p>
                 <p className="text-stone-400 font-medium">— {review.author}</p>
-              </div>
+              </a>
             ))}
           </div>
         </div>
