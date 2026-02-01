@@ -64,6 +64,8 @@ const INSTAGRAM_URL = "https://www.instagram.com/502_thrifts/";
 
 function App() {
   const [activeSection, setActiveSection] = useState("home");
+  const [hoursExpanded, setHoursExpanded] = useState(false);
+  const reviewsRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -84,6 +86,19 @@ function App() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const reviewsContainer = reviewsRef.current;
+    if (!reviewsContainer) return;
+
+    const handleWheel = (e) => {
+      e.preventDefault();
+      reviewsContainer.scrollLeft += e.deltaY;
+    };
+
+    reviewsContainer.addEventListener("wheel", handleWheel);
+    return () => reviewsContainer.removeEventListener("wheel", handleWheel);
   }, []);
 
   const scrollToSection = (sectionId) => {
