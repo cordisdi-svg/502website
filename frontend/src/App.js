@@ -377,15 +377,45 @@ function App() {
                 <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
                   <Clock className="w-6 h-6 text-white" />
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-stone-900 mb-2">Hours</h3>
-                  <p className="text-stone-700">Opens 11 AM</p>
-                  <p className="text-stone-500 text-sm">(Currently closed)</p>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-stone-900 mb-3">Hours</h3>
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-center">
+                      <span className="text-stone-700 font-medium">{HOURS[0].day}</span>
+                      <span className="text-stone-600">{HOURS[0].hours}</span>
+                    </div>
+                    <div 
+                      className={`flex justify-between items-center ${!hoursExpanded ? 'opacity-50' : ''}`}
+                    >
+                      <span className="text-stone-700 font-medium">{HOURS[1].day}</span>
+                      <span className="text-stone-600">{HOURS[1].hours}</span>
+                    </div>
+                    {!hoursExpanded && (
+                      <button
+                        onClick={() => setHoursExpanded(true)}
+                        className="text-red-600 hover:text-red-700 text-sm font-medium flex items-center gap-1 transition-colors"
+                        data-testid="expand-hours-btn"
+                      >
+                        Show all hours
+                        <ChevronDown className="w-4 h-4" />
+                      </button>
+                    )}
+                    {hoursExpanded && (
+                      <div className="space-y-2 animate-fade-in">
+                        {HOURS.slice(2).map((day, index) => (
+                          <div key={index} className="flex justify-between items-center">
+                            <span className="text-stone-700 font-medium">{day.day}</span>
+                            <span className="text-stone-600">{day.hours}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
               
               <a
-                href="https://www.google.com/maps/search/?api=1&query=1900+Eastern+Pkwy,+Louisville,+KY+40204"
+                href={GOOGLE_MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-4 bg-red-600 text-white font-semibold rounded hover:bg-red-700 transition-colors shadow-lg"
@@ -393,6 +423,17 @@ function App() {
               >
                 <MapPin className="w-5 h-5 mr-2" />
                 Open in Google Maps
+              </a>
+              
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-8 py-4 bg-stone-900 text-white font-semibold rounded hover:bg-stone-800 transition-colors shadow-lg"
+                data-testid="location-instagram-btn"
+              >
+                <Instagram className="w-5 h-5 mr-2" />
+                Follow on Instagram
               </a>
             </div>
             
