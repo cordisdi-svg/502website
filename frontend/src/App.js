@@ -59,8 +59,9 @@ const HOURS = [
   { day: "Sunday", hours: "11 AM–7 PM" }
 ];
 
-const GOOGLE_MAPS_URL = "https://www.google.com/maps/place/502+Thrifts/@38.2316284,-85.7095982,20.5z/data=!4m15!1m8!3m7!1s0x88690cc9390826d7:0x9e951e81abbf4e0b!2s1900+Eastern+Pkwy,+Louisville,+KY+40204!3b1!8m2!3d38.2315813!4d-85.7094412!16s%2Fg%2F11rg5_0gkc!3m5!1s0x88690d00536b0225:0xec768e31c9b33e51!8m2!3d38.2315813!4d-85.7094412!16s%2Fg%2F11y3n1hm09?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D";
+const GOOGLE_MAPS_URL = "https://www.google.com/maps/search/?api=1&query=502+Thrifts&query_place_id=ChIJJQJrUwANaYgRUT6zyTGOduw";
 const INSTAGRAM_URL = "https://www.instagram.com/502_thrifts/";
+const GOOGLE_REVIEWS_URL = "https://www.google.com/maps/place/502+Thrifts/@38.2316284,-85.7095982,20.5z/data=!4m8!3m7!1s0x88690d00536b0225:0xec768e31c9b33e51!8m2!3d38.2315813!4d-85.7094412!9m1!1b1!16s%2Fg%2F11y3n1hm09";
 
 function App() {
   const [activeSection, setActiveSection] = useState("home");
