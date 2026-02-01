@@ -66,6 +66,7 @@ const GOOGLE_REVIEWS_URL = "https://www.google.com/maps/place/502+Thrifts/@38.23
 function App() {
   const [activeSection, setActiveSection] = useState("home");
   const [hoursExpanded, setHoursExpanded] = useState(false);
+  const [expandedReviews, setExpandedReviews] = useState({});
   const reviewsRef = useRef(null);
 
   useEffect(() => {
@@ -89,18 +90,12 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    const reviewsContainer = reviewsRef.current;
-    if (!reviewsContainer) return;
-
-    const handleWheel = (e) => {
-      e.preventDefault();
-      reviewsContainer.scrollLeft += e.deltaY;
-    };
-
-    reviewsContainer.addEventListener("wheel", handleWheel);
-    return () => reviewsContainer.removeEventListener("wheel", handleWheel);
-  }, []);
+  const toggleReview = (index) => {
+    setExpandedReviews(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
+  };
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
