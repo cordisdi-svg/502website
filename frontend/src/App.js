@@ -290,7 +290,7 @@ function App() {
       </section>
 
       {/* Reviews Section */}
-      <section id="reviews" className="py-24 bg-stone-900 text-white overflow-hidden">
+      <section id="reviews" className="py-24 bg-stone-900 text-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center mb-4" data-testid="reviews-rating">
@@ -301,18 +301,11 @@ function App() {
             <p className="text-2xl text-stone-200 mt-4">Loved by the local vintage community</p>
           </div>
           
-          <div 
-            ref={reviewsRef}
-            className="flex gap-8 overflow-x-auto scroll-smooth pb-4 px-4 -mx-4 scrollbar-hide"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          >
+          <div className="grid md:grid-cols-3 gap-8">
             {REVIEWS.map((review, index) => (
-              <a
+              <div
                 key={index}
-                href={review.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-stone-800 p-6 rounded-lg min-w-[320px] md:min-w-[400px] flex-shrink-0 hover:bg-stone-750 transition-colors cursor-pointer"
+                className="bg-stone-800 p-6 rounded-lg cursor-pointer hover:bg-stone-750 transition-colors"
                 data-testid={`review-${index}`}
               >
                 <div className="flex mb-4">
@@ -320,10 +313,44 @@ function App() {
                     <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
-                <p className="text-stone-200 mb-4 leading-relaxed line-clamp-4">{review.text}</p>
-                <p className="text-stone-400 font-medium">— {review.author}</p>
-              </a>
+                <div className="text-stone-200 mb-4 leading-relaxed">
+                  <p className={expandedReviews[index] ? "" : "line-clamp-3"}>
+                    {review.text}
+                  </p>
+                  {review.text.length > 150 && (
+                    <button
+                      onClick={() => toggleReview(index)}
+                      className="text-red-500 hover:text-red-400 text-sm font-medium mt-2 transition-colors"
+                    >
+                      {expandedReviews[index] ? "Show less" : "Read more"}
+                    </button>
+                  )}
+                </div>
+                <a
+                  href={review.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-stone-400 font-medium hover:text-stone-300 transition-colors"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  — {review.author}
+                </a>
+              </div>
             ))}
+            
+            <a
+              href={GOOGLE_REVIEWS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-stone-800 p-6 rounded-lg flex items-center justify-center hover:bg-stone-750 transition-colors border-2 border-stone-700"
+              data-testid="read-more-reviews-btn"
+            >
+              <div className="text-center">
+                <Star className="w-12 h-12 fill-yellow-400 text-yellow-400 mx-auto mb-4" />
+                <p className="text-xl font-semibold text-white">Read More Reviews</p>
+                <p className="text-stone-400 text-sm mt-2">View all on Google Maps</p>
+              </div>
+            </a>
           </div>
         </div>
       </section>
