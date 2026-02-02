@@ -438,27 +438,29 @@ function App() {
                 </div>
               </div>
               
-              <a
-                href={GOOGLE_MAPS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-4 bg-red-600 text-white font-semibold rounded hover:bg-red-700 transition-colors shadow-lg"
-                data-testid="location-maps-btn"
-              >
-                <MapPin className="w-5 h-5 mr-2" />
-                Open in Google Maps
-              </a>
-              
-              <a
-                href={INSTAGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-4 bg-stone-900 text-white font-semibold rounded hover:bg-stone-800 transition-colors shadow-lg"
-                data-testid="location-instagram-btn"
-              >
-                <Instagram className="w-5 h-5 mr-2" />
-                Follow on Instagram
-              </a>
+              <div className="flex flex-col gap-3">
+                <a
+                  href={GOOGLE_MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-red-600 text-white font-semibold rounded hover:bg-red-700 transition-colors shadow-lg"
+                  data-testid="location-maps-btn"
+                >
+                  <MapPin className="w-5 h-5 mr-2" />
+                  Open in Google Maps
+                </a>
+                
+                <a
+                  href={INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-stone-900 text-white font-semibold rounded hover:bg-stone-800 transition-colors shadow-lg"
+                  data-testid="location-instagram-btn"
+                >
+                  <Instagram className="w-5 h-5 mr-2" />
+                  Follow on Instagram
+                </a>
+              </div>
             </div>
             
             <div className="relative h-96 rounded-lg overflow-hidden shadow-xl">
