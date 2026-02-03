@@ -3,11 +3,11 @@ import "@/App.css";
 import { MapPin, Phone, Star, Clock, ChevronDown, Instagram } from "lucide-react";
 
 const STORE_IMAGES = {
-  storefront1: "https://customer-assets.emergentagent.com/job_678a73c4-b73b-4fe2-856f-9d4b969d0787/artifacts/6ix2rtcx_Gemini_Generated_Image_wyui5nwyui5nwyui.png",
-  storefront2: "https://customer-assets.emergentagent.com/job_678a73c4-b73b-4fe2-856f-9d4b969d0787/artifacts/nm71ley8_%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202026-02-01%20185012.png",
-  interior: "https://customer-assets.emergentagent.com/job_678a73c4-b73b-4fe2-856f-9d4b969d0787/artifacts/w97qks2p_%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202026-02-01%20185023.png",
-  signage: "https://customer-assets.emergentagent.com/job_678a73c4-b73b-4fe2-856f-9d4b969d0787/artifacts/2gx14n95_%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202026-02-01%20185033.png",
-  products: "https://customer-assets.emergentagent.com/job_678a73c4-b73b-4fe2-856f-9d4b969d0787/artifacts/0qtp4vp0_%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202026-02-01%20185141.png"
+  storefront1: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1600&q=80",
+  storefront2: "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1600&q=80",
+  interior: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1600&q=80",
+  signage: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1600&q=80",
+  products: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=1600&q=80"
 };
 
 const REVIEWS = [
