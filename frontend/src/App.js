@@ -2,12 +2,14 @@ import { useState, useEffect, useRef } from "react";
 import "@/App.css";
 import { MapPin, Phone, Star, Clock, ChevronDown, Instagram } from "lucide-react";
 
+const PUBLIC_URL = process.env.PUBLIC_URL || "";
+const imagePath = (fileName) => `${PUBLIC_URL}/images/${encodeURIComponent(fileName)}`;
 const STORE_IMAGES = {
-  storefront1: "https://customer-assets.emergentagent.com/job_678a73c4-b73b-4fe2-856f-9d4b969d0787/artifacts/6ix2rtcx_Gemini_Generated_Image_wyui5nwyui5nwyui.png",
-  storefront2: "https://customer-assets.emergentagent.com/job_678a73c4-b73b-4fe2-856f-9d4b969d0787/artifacts/nm71ley8_%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202026-02-01%20185012.png",
-  interior: "https://customer-assets.emergentagent.com/job_678a73c4-b73b-4fe2-856f-9d4b969d0787/artifacts/w97qks2p_%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202026-02-01%20185023.png",
-  signage: "https://customer-assets.emergentagent.com/job_678a73c4-b73b-4fe2-856f-9d4b969d0787/artifacts/2gx14n95_%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202026-02-01%20185033.png",
-  products: "https://customer-assets.emergentagent.com/job_678a73c4-b73b-4fe2-856f-9d4b969d0787/artifacts/0qtp4vp0_%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202026-02-01%20185141.png"
+  storefront1: imagePath("Gemini_Generated_Image_wyui5nwyui5nwyui.png"),
+  storefront2: imagePath("Снимок экрана 2026-02-01 185012.png"),
+  interior: imagePath("Снимок экрана 2026-02-01 185023.png"),
+  signage: imagePath("Снимок экрана 2026-02-01 185033.png"),
+  products: imagePath("Снимок экрана 2026-02-01 185141.png")
 };
 
 const REVIEWS = [
