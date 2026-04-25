@@ -484,11 +484,19 @@ function App() {
             <p className="text-stone-400 mb-2">1900 Eastern Pkwy, Louisville, KY 40204</p>
             <a
               href="tel:+15023840095"
-              className="text-stone-400 hover:text-white transition-colors"
+              className="text-stone-400 hover:text-white transition-colors block mb-8"
             >
               (502) 384-0095
             </a>
-            <div className="mt-8 pt-8 border-t border-stone-800">
+            <a
+              href="https://www.instagram.com/magistr_iney"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-stone-400 hover:text-white transition-colors block mb-8"
+            >
+              Do you need a website?
+            </a>
+            <div className="pt-8 border-t border-stone-800">
               <p className="text-stone-500 text-sm">© 2025 502 Thrifts. All rights reserved.</p>
             </div>
           </div>
