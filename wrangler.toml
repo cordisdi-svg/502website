@@ -1,3 +1,6 @@
 name = "502website"
-pages_build_output_dir = "frontend/build"
 compatibility_date = "2024-04-25"
+
+[assets]
+directory = "frontend/build"
+binding = "ASSETS"
