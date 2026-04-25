@@ -1,0 +1,12 @@
+{
+  "name": "502website-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "cd frontend && yarn install && yarn build",
+    "deploy": "npm run build && npx wrangler pages deploy frontend/build"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
