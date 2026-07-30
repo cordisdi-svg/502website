@@ -158,7 +158,7 @@ function App() {
         </div>
         
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <GradientOverlay inset="-60px -80px" />
+          <GradientOverlay inset="-60px -80px" zIndex={-1} />
           <h1 
             className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight"
             data-testid="hero-title"
