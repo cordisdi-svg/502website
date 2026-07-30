@@ -5,11 +5,11 @@ import { MapPin, Phone, Star, Clock, ChevronDown, Instagram } from "lucide-react
 const PUBLIC_URL = process.env.PUBLIC_URL || "";
 const imagePath = (fileName) => `${PUBLIC_URL}/images/${encodeURIComponent(fileName)}`;
 const STORE_IMAGES = {
-  storefront1: imagePath("Gemini_Generated_Image_wyui5nwyui5nwyui.png"),
-  storefront2: imagePath("Снимок экрана 2026-02-01 185012.png"),
-  interior: imagePath("Снимок экрана 2026-02-01 185023.png"),
-  signage: imagePath("Снимок экрана 2026-02-01 185033.png"),
-  products: imagePath("Снимок экрана 2026-02-01 185141.png")
+  storefront1: imagePath("Gemini_Generated_Image_wyui5nwyui5nwyui.webp"),
+  storefront2: imagePath("Снимок экрана 2026-02-01 185012.webp"),
+  interior: imagePath("Снимок экрана 2026-02-01 185023.webp"),
+  signage: imagePath("Снимок экрана 2026-02-01 185033.webp"),
+  products: imagePath("Снимок экрана 2026-02-01 185141.webp")
 };
 
 const REVIEWS = [
@@ -164,7 +164,7 @@ function App() {
             502 THRIFTS
           </h1>
           <p className="text-xl sm:text-2xl text-stone-100 mb-12 font-light tracking-wide">
-            Curated Vintage Clothing in Louisville
+            Curated Vintage Clothing in Louisville, USA
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
