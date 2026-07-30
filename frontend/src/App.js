@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import "@/App.css";
 import { MapPin, Phone, Star, Clock, ChevronDown, Instagram } from "lucide-react";
+import GradientOverlay from "@/components/GradientOverlay";
 
 const PUBLIC_URL = process.env.PUBLIC_URL || "";
 const imagePath = (fileName) => `${PUBLIC_URL}/images/${encodeURIComponent(fileName)}`;
@@ -157,6 +158,7 @@ function App() {
         </div>
         
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+          <GradientOverlay inset="-60px -80px" />
           <h1 
             className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight"
             data-testid="hero-title"
